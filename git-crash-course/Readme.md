@@ -34,12 +34,57 @@ cd /workspaces/temp
 git clone https://github.com/SpringerAlac/gitpractice.git
 cd gitpractice/
 ```
+If you just clone your repo in the terminal, you will not be able to push to even regular public repos with just username and password (support removed back in 2021). This also assumes that you have implimented no external GitHub support and the ONLY thing you did was https clone a repo.
+
+> You will need to generate a Personal Access Token (PAT) on your setting account
+
+Use PAT as your password
+- Set permissions to access commits
 
 ### SSH
 
+```sh
+git clone git@github.com:SpringerAlac/gitpractice.git
+cd gitpractice/
+```
+You will need to use git bash to generate a SSH key and save it to your GitHub account!
+
+```sh
+ls -al ~/.ssh
 ```
 
+This command will let you see all ssh keys in your ssh file. This file is used for default SSH key checks.
+
+```sh
+ssh-keygen -t rsa -b 4096 -C "sprin023@csusm.edu"
 ```
+Create a key using git-bash and just save it to your ssh folder and you can also set a custom passphrase for it. (just hit enter a bunch of times)
+
+Copy paste the PUBLIC KEY into GitHub in your settings and you are done.
+
+```sh
+ssh -T git@github.com
+git remote -v
+```
+Verify the connection is complete using these commands and you should get message that your connection is good but that GitHub does not have shell support (that is fine). 
+
+### GitHub Cli
+
+Need to download the GitHub Cli, just google it and find the repo on GitHub.
+
+```sh
+winget install --id GitHub.cli
+```
+Then we can use the new gh commands in our regular terminals. (this edits your PATH so you need to restart your terminal window)
+
+```sh
+gh auth login
+gh repo clone SpringerAlac/gitpractice
+```
+
+You will go throw a whole prompt that will connect your local repo to the remote repo securely with a couple of options. All work so do whatever.
+
+And that it! Just have to download it an you are good to go. Definitely the easiest of the bunch.
 
 ## Commits
 
@@ -53,14 +98,30 @@ Set the global editor
 git config --global core.editor emacs
 ```
 
-
 Make a commit and message without using an editor.
+
 ```sh
 git commit -m "added another exclamation"
 ```
 
-
 ## Branches
+ 
+List of Branches 
+```sh
+git branch
+```
+
+Create a new branch
+```sh
+git branch [branch-name]
+```
+
+Checkout (Switch between) to a different branch
+```sh
+git checkout [branch-name]
+```
+
+
 
 ## Remotes
 
@@ -106,12 +167,12 @@ git config --list
 When you first install Git on a machine, you are supposed to set up your name and email
 ```sh
 git config --global user.name "Alac Springer"
-git config --global user.email alacspringer123@gmail.com
+git config --global user.email "springeralac123@gmail.com"
 ```
 
 ## Log 
 
-Will show recent commits to the git tree
+Will show recent commits to the git tree, all commits 
 
 ## Push 
 
