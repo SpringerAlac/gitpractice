@@ -121,13 +121,57 @@ Checkout (Switch between) to a different branch
 git checkout [branch-name]
 ```
 
-
-
 ## Remotes
+
+We can add remotes but often the remotes are added via upstream when adding a branch
+
+```sh
+git remote add [name]
+git branch -u origin new-feature
+```
 
 ## Stashing
 
+If you have files you are still working on but do not want to push them yet... you can Stash them!
+
+First add the files you want to stash to the staging area.
+-> Then you can commit the files you do want to push!
+
+```sh
+git add .
+git stash
+```
+
+You can see how many stashes you have on a stack data structure using
+```sh
+git stash list
+```
+
+It is a stack so you can get the last one you pushed using
+```sh
+git stash pop
+```
+
+or you can use
+```sh
+git stash apply
+```
+if you want to use the last one and not pop it off the stash area
+
+You can give that stash a name if you have some sort of ordering that you want
+```sh
+git stash save [name]
+git stash apply
+```
+
+Again this will let you keep your files without having to push them and also not wanting to effect those same files on the repo or pushing undone ones.
+
 ## Merging
+
+```sh
+git checkout dev
+git merge main
+```
 
 ## Add
 
