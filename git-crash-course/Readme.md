@@ -41,6 +41,16 @@ If you just clone your repo in the terminal, you will not be able to push to eve
 Use PAT as your password
 - Set permissions to access commits
 
+The PAT is created on the GitHub website! Go to Developer Settings on your profile.
+
+Then copy it into your environment using 
+
+```sh
+export GH_TOKEN="YOUR PAT"
+# Use this to confirm your key was copied
+env | grep GH_
+```
+
 ### SSH
 
 ```sh
