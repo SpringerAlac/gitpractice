@@ -220,8 +220,8 @@ git config --list
 ```
 When you first install Git on a machine, you are supposed to set up your name and email
 ```sh
-git config --global user.name "Alac Springer"
-git config --global user.email "springeralac123@gmail.com"
+git config --global user.name "Name"
+git config --global user.email "Email"
 ```
 
 ## Log 
